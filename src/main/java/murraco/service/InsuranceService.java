@@ -10,20 +10,20 @@ import java.util.List;
 
 @Service
 public class InsuranceService {
-    private final InsuranceRepository illnessRepository;
+    private final InsuranceRepository insuranceRepository;
 
     @Autowired
-    public InsuranceService(InsuranceRepository illnessRepository) { this.illnessRepository = illnessRepository; }
+    public InsuranceService(InsuranceRepository insuranceRepository) { this.insuranceRepository = insuranceRepository; }
 
-    public Insurance addInsurance(Insurance illness) { return illnessRepository.save(illness); }
+    public Insurance addInsurance(Insurance insurance) { return insuranceRepository.save(insurance); }
 
-    public List<Insurance> findAllInsurances() { return illnessRepository.findAll(); }
+    public List<Insurance> findAllInsurances() { return insuranceRepository.findAll(); }
 
-    public Insurance updateInsurance(Insurance illness) { return illnessRepository.save(illness); }
+    public Insurance updateInsurance(Insurance insurance) { return insuranceRepository.save(insurance); }
 
     public Insurance findInsuranceById(Long id) {
-        return illnessRepository.findInsuranceById(id).orElseThrow(() -> new InsuranceNotFoundException("Insurance by id " + id + "was not found."));
+        return insuranceRepository.findInsuranceById(id).orElseThrow(() -> new InsuranceNotFoundException("Insurance by id " + id + "was not found."));
     }
 
-    public void deleteInsurance(Long id) { illnessRepository.deleteInsuranceById(id); }
+    public void deleteInsurance(Long id) { insuranceRepository.deleteInsuranceById(id); }
 }
